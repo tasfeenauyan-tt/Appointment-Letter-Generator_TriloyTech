@@ -1,5 +1,5 @@
 import React from "react";
-import { FileText, Download, Printer, History, Plus, Users, Sparkles, Building2, Check, FileCheck, Layers } from "lucide-react";
+import { FileText, Download, Printer, History, Plus, Users, Sparkles, Building2, Check, FileCheck, Layers, RotateCcw } from "lucide-react";
 import { PresetProfile } from "../types";
 import { PRESET_PROFILES } from "../data/presets";
 
@@ -63,11 +63,12 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Presets dropdown for fast load */}
             <div className="hidden sm:flex items-center space-x-2">
               <select
+                value=""
                 onChange={(e) => {
                   const preset = PRESET_PROFILES.find((p) => p.id === e.target.value);
                   if (preset) onSelectPreset(preset);
+                  e.target.value = "";
                 }}
-                defaultValue=""
                 className="bg-slate-800 text-xs text-slate-200 border border-slate-700 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:border-slate-600 transition"
               >
                 <option value="" disabled>
@@ -192,10 +193,11 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={onNewLetter}
-              title="Reset to New Blank Form"
-              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition"
+              title="Reset & Clear Form"
+              className="px-2.5 py-1.5 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition flex items-center text-xs space-x-1.5 font-medium"
             >
-              <Plus className="w-4 h-4" />
+              <RotateCcw className="w-3.5 h-3.5 text-amber-400" />
+              <span>Reset</span>
             </button>
           </div>
 

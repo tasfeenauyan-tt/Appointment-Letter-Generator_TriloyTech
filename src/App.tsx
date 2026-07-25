@@ -6,7 +6,7 @@ import { TermsAndConditionsPreview } from "./components/TermsAndConditionsPrevie
 import { SavedLettersModal } from "./components/SavedLettersModal";
 import { BulkGeneratorModal } from "./components/BulkGeneratorModal";
 import { AppointmentLetterData, PresetProfile } from "./types";
-import { DEFAULT_LETTER_DATA } from "./data/presets";
+import { DEFAULT_LETTER_DATA, getDefaultLetterData, getBlankLetterData } from "./data/presets";
 import { generateAppointmentDocx } from "./utils/docxGenerator";
 import { exportLetterToPDF, triggerPrintLetter } from "./utils/pdfGenerator";
 import { Sparkles, Check, AlertCircle } from "lucide-react";
@@ -90,10 +90,10 @@ export default function App() {
     showToast(`Loaded "${preset.label}" role profile!`);
   };
 
-  // Reset to default
+  // Reset to blank form
   const handleNewLetter = () => {
-    setLetterData(DEFAULT_LETTER_DATA);
-    showToast("Form reset to blank appointment template.");
+    setLetterData(getBlankLetterData());
+    showToast("Form reset! All candidate fields cleared.");
   };
 
   // Download DOCX with Terms & Annexure
@@ -200,6 +200,7 @@ export default function App() {
                 data={letterData}
                 onChange={setLetterData}
                 onSaveHistory={handleSaveHistory}
+                onReset={handleNewLetter}
               />
             </div>
 

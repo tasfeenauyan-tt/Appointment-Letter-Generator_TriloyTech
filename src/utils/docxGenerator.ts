@@ -16,9 +16,11 @@ export async function generateAppointmentDocx(
 ): Promise<void> {
   const shouldIncludeTerms = overrideIncludeTerms !== undefined ? overrideIncludeTerms : data.includeTermsPage;
 
-  const { formattedNumber, words } = formatGrossSalaryBDT(data.grossSalary);
+  const { formattedNumber, words: autoWords } = formatGrossSalaryBDT(data.grossSalary);
   const displaySalary = formattedNumber || data.grossSalary;
-  const salaryText = words ? `BDT ${displaySalary} (${words})` : `BDT ${displaySalary}`;
+  const rawWords = autoWords || data.salaryInWords || "";
+  const cleanWords = rawWords.replace(/^\(|\)$/g, "").trim();
+  const salaryText = cleanWords ? `BDT ${displaySalary} (${cleanWords})` : `BDT ${displaySalary}`;
 
   const salutationName = `${data.salutation} ${data.employeeFullName}`.trim();
 
@@ -91,7 +93,6 @@ export async function generateAppointmentDocx(
           text: "PRIVATE & CONFIDENTIAL",
           bold: true,
           size: 20, // 10pt
-          color: "1E293B",
           font: "Arial"
         })
       ]
@@ -168,7 +169,6 @@ export async function generateAppointmentDocx(
         new TextRun({
           text: "Appointment Letter",
           bold: true,
-          underline: {},
           size: 20,
           font: "Arial"
         })

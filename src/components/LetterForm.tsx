@@ -12,6 +12,7 @@ import {
   Plus,
   Trash2,
   BookmarkPlus,
+  RotateCcw,
   Sparkles,
   HelpCircle,
   FileCheck2
@@ -24,12 +25,14 @@ interface LetterFormProps {
   data: AppointmentLetterData;
   onChange: (updated: AppointmentLetterData) => void;
   onSaveHistory: () => void;
+  onReset: () => void;
 }
 
 export const LetterForm: React.FC<LetterFormProps> = ({
   data,
   onChange,
-  onSaveHistory
+  onSaveHistory,
+  onReset
 }) => {
   const handleInputChange = (field: keyof AppointmentLetterData, value: any) => {
     onChange({
@@ -104,13 +107,26 @@ export const LetterForm: React.FC<LetterFormProps> = ({
           </p>
         </div>
 
-        <button
-          onClick={onSaveHistory}
-          className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs rounded-lg transition flex items-center space-x-1 border border-blue-200/60"
-        >
-          <BookmarkPlus className="w-3.5 h-3.5" />
-          <span>Save Record</span>
-        </button>
+        <div className="flex items-center space-x-2">
+          <button
+            type="button"
+            onClick={onReset}
+            className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-lg transition flex items-center space-x-1 border border-slate-200"
+            title="Reset & Clear Form"
+          >
+            <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
+            <span>Reset</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onSaveHistory}
+            className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs rounded-lg transition flex items-center space-x-1 border border-blue-200/60"
+          >
+            <BookmarkPlus className="w-3.5 h-3.5" />
+            <span>Save Record</span>
+          </button>
+        </div>
       </div>
 
       {/* SECTION 1: EMPLOYEE INFORMATION */}
@@ -224,7 +240,7 @@ export const LetterForm: React.FC<LetterFormProps> = ({
           </div>
           {data.salaryInWords && (
             <p className="text-[11px] text-blue-600 font-medium mt-1">
-              In Words: <span className="italic">{data.salaryInWords}</span>
+              In Words: <span className="italic">({data.salaryInWords.replace(/^\(|\)$/g, "").trim()})</span>
             </p>
           )}
         </div>

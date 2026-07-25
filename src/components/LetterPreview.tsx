@@ -13,7 +13,8 @@ export const LetterPreview: React.FC<LetterPreviewProps> = ({
 }) => {
   const { formattedNumber, words } = formatGrossSalaryBDT(data.grossSalary);
   const displaySalary = formattedNumber || data.grossSalary || "50,000";
-  const salaryWordsText = words || data.salaryInWords;
+  const rawSalaryWords = words || data.salaryInWords || "";
+  const salaryWordsFormatted = rawSalaryWords.replace(/^\(|\)$/g, "").trim();
 
   const salutationName = `${data.salutation || "Mr."} ${data.employeeFullName || "[Full Name]"}`.trim();
   const addressLines = (data.fullAddress || "[Full Address]").split("\n");
@@ -71,7 +72,7 @@ export const LetterPreview: React.FC<LetterPreviewProps> = ({
           {/* Subject Line */}
           <div className="mb-5">
             <p className="font-bold text-slate-950 text-sm sm:text-base">
-              Subject: <span className="underline underline-offset-4 decoration-2 decoration-slate-900">Appointment Letter</span>
+              Subject: Appointment Letter
             </p>
           </div>
 
@@ -97,7 +98,7 @@ export const LetterPreview: React.FC<LetterPreviewProps> = ({
             <p>
               Your monthly gross salary will be{" "}
               <strong className="text-slate-950 font-bold">
-                BDT {displaySalary} {salaryWordsText ? `${salaryWordsText}` : ""}
+                BDT {displaySalary}{salaryWordsFormatted ? ` (${salaryWordsFormatted})` : ""}
               </strong>
               , payable in accordance with the Company's payroll policies.
             </p>

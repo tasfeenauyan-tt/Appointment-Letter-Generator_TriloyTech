@@ -466,8 +466,8 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
             <div className="space-y-6 text-slate-800 text-justify text-xs sm:text-sm">
               
               {/* Annexure A */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">Annexure A: Acceptable Use Policy (AUP)</h3>
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">Annexure A: Acceptable Use Policy (AUP)</h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Purpose:</p>
                 <p className="mb-2">
                   This policy establishes acceptable standards for the use of Company-owned equipment, software, internet services, communication platforms, and artificial intelligence tools.
@@ -493,14 +493,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>Use Company resources for illegal, unethical, or competing business activities.</li>
                 </ul>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   The Company reserves the right to monitor usage of Company systems in accordance with applicable law.
                 </p>
               </div>
 
               {/* Annexure B */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure B: Information Security &amp; Data Protection Policy
                 </h3>
                 <p className="mb-2">Employees shall protect all Company and client information.</p>
@@ -523,14 +523,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>Use client information for personal benefit.</li>
                 </ul>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Any data breach resulting from negligence may lead to disciplinary action.
                 </p>
               </div>
 
               {/* Annexure C */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure C: Code of Conduct &amp; Anti-Harassment Policy
                 </h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Every employee shall:</p>
@@ -551,14 +551,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>Retaliation against whistleblowers.</li>
                 </ul>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Complaints shall be investigated confidentially and appropriate disciplinary action may be taken.
                 </p>
               </div>
 
               {/* Annexure D */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure D: Remote Work Policy
                 </h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Employees approved for remote or hybrid work shall:</p>
@@ -570,14 +570,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>Use Company-approved collaboration tools.</li>
                   <li>Secure Company equipment from unauthorized access.</li>
                 </ul>
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Management may require employees to return to office whenever business needs require.
                 </p>
               </div>
 
               {/* Annexure E */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure E: Social Media &amp; Public Communication Policy
                 </h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Employees shall not:</p>
@@ -590,14 +590,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                 <p className="mb-1">
                   Employees may identify themselves as employees of The Company provided such identification does not imply official Company representation.
                 </p>
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Only authorized personnel may speak to the media or issue official Company statements.
                 </p>
               </div>
 
               {/* Annexure F */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure F: Equipment Handover &amp; Asset Responsibility Agreement
                 </h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Employees receiving Company equipment agree to:</p>
@@ -621,14 +621,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <div>• Documents</div>
                 </div>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Employees may be held financially responsible for loss or intentional damage caused by negligence, subject to applicable law.
                 </p>
               </div>
 
               {/* Annexure G */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2 border-b border-slate-100">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure G: Performance Management &amp; Performance Improvement Plan (PIP)
                 </h3>
                 <p className="font-semibold text-slate-900 text-xs mb-1">Performance shall be reviewed periodically based on:</p>
@@ -653,14 +653,14 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>A specified improvement period</li>
                 </ul>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   Failure to achieve satisfactory improvement may result in further disciplinary action, including termination where appropriate.
                 </p>
               </div>
 
               {/* Annexure H */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded">
-                <h3 className="font-bold text-slate-950 text-sm mb-1">
+              <div className="py-2">
+                <h3 className="font-bold text-slate-950 text-sm mb-1.5 uppercase tracking-wide">
                   Annexure H: Leave Policy
                 </h3>
                 <p className="mb-2">
@@ -687,7 +687,7 @@ export const TermsAndConditionsPreview: React.FC<TermsAndConditionsPreviewProps>
                   <li>Unauthorized absence may be treated as misconduct and may result in salary deductions or disciplinary action.</li>
                 </ul>
 
-                <p className="italic text-slate-600 text-xs">
+                <p className="italic text-slate-600 text-xs mt-1">
                   The Company reserves the right to revise leave entitlements and procedures in accordance with operational requirements and applicable laws.
                 </p>
               </div>

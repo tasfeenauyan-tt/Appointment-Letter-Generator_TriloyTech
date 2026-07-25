@@ -1,0 +1,6 @@
+{
+  "name": "Appointment Letter Generator",
+  "description": "Professional appointment letter generator for TriloyTech with live preview, PDF export, and Word (.docx) document generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

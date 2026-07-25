@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-document {
+  font-family: 'Libre Baskerville', Georgia, serif;
+}
+
+@media print {
+  /* Hide non-printable elements */
+  .no-print,
+  header,
+  button,
+  .toast,
+  nav {
+    display: none !important;
+  }
+
+  body,
+  main {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .letter-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    page-break-after: always;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 15mm 18mm 15mm 18mm;
+  }
+}
+

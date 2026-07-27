@@ -6,8 +6,10 @@ import { PRESET_PROFILES } from "../data/presets";
 interface HeaderProps {
   onDownloadDocWithTerms: () => void;
   onDownloadDocWithoutTerms: () => void;
+  onDownloadDocTermsOnly: () => void;
   onDownloadPdfWithTerms: () => void;
   onDownloadPdfWithoutTerms: () => void;
+  onDownloadPdfTermsOnly: () => void;
   onPrint: () => void;
   onNewLetter: () => void;
   onOpenHistory: () => void;
@@ -22,8 +24,10 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   onDownloadDocWithTerms,
   onDownloadDocWithoutTerms,
+  onDownloadDocTermsOnly,
   onDownloadPdfWithTerms,
   onDownloadPdfWithoutTerms,
+  onDownloadPdfTermsOnly,
   onPrint,
   onNewLetter,
   onOpenHistory,
@@ -149,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="hidden xl:inline font-medium">Print</span>
             </button>
 
-            {/* 2 DOCX Download Buttons Group */}
+            {/* DOCX Download Buttons Group */}
             <div className="flex items-center bg-slate-800/90 rounded-xl p-1 border border-blue-500/30 shadow-sm space-x-1">
               <button
                 onClick={onDownloadDocWithTerms}
@@ -168,9 +172,17 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <span>DOCX (Letter)</span>
               </button>
+              <button
+                onClick={onDownloadDocTermsOnly}
+                disabled={isDocGenerating}
+                title="Export Word Document (.docx) Terms Annexure Only"
+                className="px-2 py-1.5 text-blue-300 hover:text-white hover:bg-slate-700/80 font-medium text-xs rounded-lg transition flex items-center space-x-1 disabled:opacity-50"
+              >
+                <span>DOCX (Terms)</span>
+              </button>
             </div>
 
-            {/* 2 PDF Download Buttons Group */}
+            {/* PDF Download Buttons Group */}
             <div className="flex items-center bg-slate-800/90 rounded-xl p-1 border border-red-500/30 shadow-sm space-x-1">
               <button
                 onClick={onDownloadPdfWithTerms}
@@ -188,6 +200,14 @@ export const Header: React.FC<HeaderProps> = ({
                 className="px-2 py-1.5 text-red-300 hover:text-white hover:bg-slate-700/80 font-medium text-xs rounded-lg transition flex items-center space-x-1 disabled:opacity-50"
               >
                 <span>PDF (Letter)</span>
+              </button>
+              <button
+                onClick={onDownloadPdfTermsOnly}
+                disabled={isPdfGenerating}
+                title="Export PDF Document (.pdf) Terms Annexure Only"
+                className="px-2 py-1.5 text-red-300 hover:text-white hover:bg-slate-700/80 font-medium text-xs rounded-lg transition flex items-center space-x-1 disabled:opacity-50"
+              >
+                <span>PDF (Terms)</span>
               </button>
             </div>
 

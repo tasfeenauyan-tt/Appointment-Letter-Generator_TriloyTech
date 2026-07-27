@@ -7,7 +7,7 @@ import { SavedLettersModal } from "./components/SavedLettersModal";
 import { BulkGeneratorModal } from "./components/BulkGeneratorModal";
 import { AppointmentLetterData, PresetProfile } from "./types";
 import { DEFAULT_LETTER_DATA, getDefaultLetterData, getBlankLetterData } from "./data/presets";
-import { generateAppointmentDocx } from "./utils/docxGenerator";
+import { generateAppointmentDocx, generateTermsOnlyDocx } from "./utils/docxGenerator";
 import { exportLetterToPDF, triggerPrintLetter } from "./utils/pdfGenerator";
 import { Sparkles, Check, AlertCircle } from "lucide-react";
 
@@ -124,6 +124,20 @@ export default function App() {
     }
   };
 
+  // Download DOCX Terms Annexure Only
+  const handleDownloadDocTermsOnly = async () => {
+    try {
+      setIsDocGenerating(true);
+      await generateTermsOnlyDocx(letterData);
+      showToast("DOCX (Terms Annexure Only) downloaded!");
+    } catch (err) {
+      console.error("DOCX error:", err);
+      showToast("Failed to export .docx file.");
+    } finally {
+      setIsDocGenerating(false);
+    }
+  };
+
   // Download PDF with Terms & Annexure
   const handleDownloadPdfWithTerms = async () => {
     try {
@@ -152,6 +166,20 @@ export default function App() {
     }
   };
 
+  // Download PDF Terms Annexure Only
+  const handleDownloadPdfTermsOnly = async () => {
+    try {
+      setIsPdfGenerating(true);
+      await exportLetterToPDF(["export-terms-preview"], letterData, "Terms_Annexure_Only");
+      showToast("PDF (Terms Annexure Only) exported!");
+    } catch (err) {
+      console.error("PDF export error:", err);
+      triggerPrintLetter();
+    } finally {
+      setIsPdfGenerating(false);
+    }
+  };
+
   // Trigger Print
   const handlePrint = () => {
     triggerPrintLetter();
@@ -164,8 +192,10 @@ export default function App() {
       <Header
         onDownloadDocWithTerms={handleDownloadDocWithTerms}
         onDownloadDocWithoutTerms={handleDownloadDocWithoutTerms}
+        onDownloadDocTermsOnly={handleDownloadDocTermsOnly}
         onDownloadPdfWithTerms={handleDownloadPdfWithTerms}
         onDownloadPdfWithoutTerms={handleDownloadPdfWithoutTerms}
+        onDownloadPdfTermsOnly={handleDownloadPdfTermsOnly}
         onPrint={handlePrint}
         onNewLetter={handleNewLetter}
         onOpenHistory={() => setIsHistoryOpen(true)}
